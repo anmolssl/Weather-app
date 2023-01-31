@@ -1,0 +1,604 @@
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 20px;
+}
+
+body {
+    overflow: overlay;
+}
+
+/* Left Side */
+/* ----------------------------------------------------- Left Side ------------------------------------------------------- */
+
+.left-container {
+    background-color: #1E213A;
+
+    position: relative;
+    width: 30%;
+    height: 100vh;
+    float: left;
+    text-align: center;
+}
+
+.search-button {
+    color: white;
+    background-color: #6E707A;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+    position: absolute;
+    width: 161px;
+    height: 40px;
+    top: 4%;
+    left: 15%;
+
+    font-family: 'Raleway', sans-serif;
+    font-weight: 500;
+}
+
+.search-button:hover {
+    color: black;
+    background-color: white;
+    cursor: pointer;
+}
+
+.my-location-btn {
+    background-color: #6E707A;
+    color: white;
+
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    top: 4%;
+    right: 15%;
+
+    border: 2px transparent solid;
+    border-radius: 50%;
+}
+
+.my-location-btn:hover {
+    color: black;
+    background-color: white;
+    cursor: pointer;
+}
+
+.my-location-icon {
+    position: absolute;
+    left: 18%;
+    top: 18%;
+}
+
+.weather-image-bg {
+    color: gray;
+
+    position: absolute;
+    left: 0%;
+    top: 12%;
+    width: 100%;
+}
+
+.weather-image {
+    position: absolute;
+    left: 34%;
+    top: 20%;
+    max-width: 32%;
+}
+
+.weather-temp {
+    color: white;
+
+    position: absolute;
+    left: 30%;
+    right: 30%;
+    top: 48%;
+
+    font-family: 'Raleway', sans-serif;
+    font-weight: 500;
+    font-size: 8rem;
+}
+
+.weather-type {
+    color: #A09FB1;
+
+    position: absolute;
+    left: 30%;
+    right: 30%;
+    top: 72%;
+
+    font-family: 'Raleway', sans-serif;
+    font-weight: 600;
+    font-size: 2rem;
+}
+
+.today-date {
+    color: #88869D;
+
+    position: absolute;
+    bottom: 13%;
+    left: 30%;
+    right: 30%;
+
+    font-family: 'Raleway', sans-serif;
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+.place {
+    color: #88869D;
+
+    position: absolute;
+    bottom: 6%;
+    left: 30%;
+    right: 30%;
+
+    font-family: 'Raleway', sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+/* Search Container */
+/* ----------------------------------------------------- Search Container ------------------------------------------------------- */
+
+.search-container {
+    visibility: hidden;
+    background-color: #1E213A;
+
+    position: absolute;
+    left: 0%;
+    width: 30%;
+    height: 100vh;
+    text-align: center;
+}
+
+#search-input {
+    background-color: transparent;
+    color: white;
+
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    width: 60%;
+    height: 5%;
+    padding: 2px;
+
+    border: 2px #616475 solid;
+
+    font-family: 'Raleway', sans-serif;
+    font-weight: 400;
+    font-size: 1.2rem;
+}
+
+#search-input:valid + .placeholder {
+    display: none;
+}
+
+.placeholder {
+    color: white;
+
+    position: absolute;
+    top: 11.3%;
+    bottom: 86%;
+    left: 13%;
+    display: flex;
+    align-items: center;
+    pointer-events: none;
+
+    font-family: 'Raleway', sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+}
+
+.search-btn {
+    color: white;
+    background-color: #3C47E9;
+
+    position: absolute;
+    top: 10%;
+    right: 10%;
+    width: 15%;
+    height: 5%;
+    cursor: pointer;
+
+    border: none;
+
+    font-family: 'Raleway', sans-serif;
+    font-weight: 400;
+    font-size: 0.8rem;
+}
+
+.search-results-box {
+    position: absolute;
+    top: 20%;
+    left: 10%;
+    right: 10%;
+    height: 70%;
+    overflow: scroll;
+}
+
+::-webkit-scrollbar {
+    width: 0.8em;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+    margin-block: .5em;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(184, 184, 184, 0.486);
+    border-radius: 10rem;
+    border: 3px solid transparent;
+    background-clip: padding-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(214, 213, 213, 0.753);
+    border: 0;
+}
+
+::-webkit-scrollbar-corner {
+    display: none;
+}
+
+.search-result {
+    color: white;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 8%;
+    width: 90%;
+    margin-top: 1%;
+    margin-bottom: 3%;
+    padding: 2%;
+
+    border: 2px solid transparent;
+
+    font-family: 'Raleway', sans-serif;
+    font-weight: 200;
+    font-size: 0.8rem;
+}
+
+.search-result:hover {
+    border: 2px solid #616475;
+}
+
+.search-result span {
+    visibility: hidden;
+    color: #616475;
+}
+
+.search-result:hover span {
+    visibility: visible;
+}
+
+/* Right Side */
+/* ----------------------------------------------------- Right Side ------------------------------------------------------- */
+
+.right-container {
+    background-color: #100E1D;
+
+    position: relative;
+    width: 70%;
+    height: 100vh;
+    float: left;
+    text-align: center;
+}
+
+.right-container h1 {
+    color: white;
+    font-size: 3rem;
+
+    font-family: 'Raleway', sans-serif;
+    font-weight: 900;
+}
+
+.right-container h2 {
+    color: #E7E7EB;
+    font-size: 1rem;
+
+    font-family: 'Raleway', sans-serif;
+    font-weight: 300;
+
+    margin-top: 5%;
+}
+
+.chng-to-cels {
+    color: black;
+    background-color: white;
+
+    position: absolute;
+    top: 4%;
+    right: 18%;
+    padding: 0.4rem 0.6rem;
+    
+    border: 2px transparent solid;
+    border-radius: 50%;
+}
+
+.chng-to-fern {
+    color: white;
+    background-color: #585676;
+
+    position: absolute;
+    top: 4%;
+    right: 12%;
+    padding: 0.4rem 0.6rem;
+    
+    border: 2px transparent solid;
+    border-radius: 50%;
+}
+
+.chng-to-fern, .chng-to-cels {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.chng-to-fern:hover, .chng-to-cels:hover {
+    color: black;
+    background-color: white;
+    cursor: pointer;
+}
+
+/* Five Days Weather */
+/* ----------------------------------------------------- Five Days Weather ------------------------------------------------------- */
+
+.five-days-weather {
+    position: absolute;
+    width: 80%;
+    left: 10%;
+    top: 15%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.weather-by-date {
+    background-color: #1E213A;
+
+    position: relative;
+    width: 7rem;
+    height: 9rem;
+    float: left;
+}
+
+.fiveday-weather-img {
+    width: 60%;
+}
+
+.high-temp, .low-temp {
+    color: white;
+
+    font-family: 'Raleway', sans-serif;
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+.high-temp {
+    position: absolute;
+    bottom: 10%;
+    left: 15%;
+}
+
+.low-temp {
+    position: absolute;
+    bottom: 10%;
+    right: 15%;
+}
+
+/* Today's Highlights */
+/* ----------------------------------------------------- Today's Highlights ------------------------------------------------------- */
+
+.tdy-hlts-heading {
+    font-size: 1.5rem !important;
+    font-weight: 700 !important;
+
+    position: absolute;
+    top: 42%;
+    left: 10%;
+}
+
+.tdy-hlts {
+    position: absolute;
+    width: 80%;
+    height: 40vh;
+    left: 10%;
+    top: 50%;
+    display: grid;
+    column-gap: 2vw;
+    row-gap: 4vh;
+    grid: 57% 43% / auto auto;
+}
+
+.tdy-hlts h2 {
+    margin-top: 0%;
+}
+
+.air-pressure, .visibility, .humidity, .wind-status {
+    background-color: #1E213A;
+    text-align: center;
+    padding: 5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.wind-direction {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 25%;
+    margin-left: 37.5%;
+    margin-top: 5%;
+}
+
+.wind-direction-sign {
+    background-color: #6E707A;
+    color: white;
+
+    width: 2rem;
+    height: 2rem;
+    float: left;
+
+    border: 2px transparent solid;
+    border-radius: 50%;
+    transform: rotate(237deg);
+}
+
+.wind-direction-icon {
+    font-size: 1.2rem;
+}
+
+.humidity-bar {
+    position: relative;
+    width: 80%;
+    margin-top: 1vh;
+    margin-left: 10%;
+    height: 30%;
+}
+
+.humidity-bar h6 {
+    color: #A09FB1;
+
+    position: absolute;
+    top: 0%;
+
+    font-family: 'Raleway', sans-serif;
+    font-weight: 700;
+    font-size: 0.8rem;
+}
+
+.percentage-barempty {
+    background-color: #E7E7EB;
+
+    position: absolute;
+    top: 35%;
+    width: 100%;
+    height: 30%;
+
+    border-radius: 10px;
+}
+
+.percentage-barfilled {
+    background-color: #FFEC65;
+
+    position: absolute;
+    top: 0%;
+    width: 84%;
+    height: 100%;
+
+    border-radius: 10px;
+}
+
+/* Footer */
+/* ----------------------------------------------------- Footer ------------------------------------------------------- */
+
+.creator-name {
+    color: #A09FB1 !important;
+
+    position: absolute;
+    bottom: 2%;
+    right: 41%;
+
+    font-size: 0.8rem !important;
+}
+
+/* ----------------------------------------------------- For Mobile ------------------------------------------------------- */
+
+
+
+
+/* ----------------------------------------------------- For Mobile ------------------------------------------------------- */
+
+@media (max-width: 900px) {
+    html {
+        font-size: 15px;
+    }
+
+    .left-container {
+        width: 100%;
+    }
+
+    .search-container {
+        z-index: 999;
+        position: fixed;
+        top: 0%;
+        width: 100%;
+    }
+
+    .right-container {
+        width: 100%;
+        height: auto;
+    }
+
+    .chng-to-cels {
+        position: relative;
+        margin-top: 20px;
+        right: 2%;
+    }
+
+    .chng-to-fern {
+        position: relative;
+        margin-top: 20px;
+        left: 2%;
+    }
+
+    .five-days-weather {
+        position: relative;
+        margin-top: 20px;
+        display: grid;
+        grid: auto / 50% 50%;
+        column-gap: 5vw;
+        row-gap: 4vh;
+    }
+
+    .fiveday-weather-img {
+        width: 40%;
+    }
+
+    .weather-by-date {
+        height: 30vh;
+        width: auto;
+    }
+
+    .tdy-hlts-heading {
+        position: relative;
+        margin-top: 40px;
+        width: fit-content;
+    }
+
+    .tdy-hlts {
+        position: relative;
+        margin-top: 20px;
+        height: auto;
+        grid: auto / auto;
+    }
+
+    .humidity-bar {
+        height: 40px;
+    }
+
+    .creator-name {
+        position: relative;
+        margin-top: 70px;
+        left: 10%;
+        width: 80%;
+        margin-bottom: 30px;
+    }
+}
+
+@media (min-width: 901px) and (max-width: 1300px) {
+    html {
+        font-size: 12px;
+    }
+}
+
+@media (min-width: 1301px) and (max-width: 1600px) {
+    html {
+        font-size: 14px;
+    }
+}
