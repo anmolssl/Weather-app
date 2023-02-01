@@ -1,6 +1,7 @@
 const express = require("express");
 const https = require("https");
 const geolocation = require("geolocation");
+const PORT = process.env.PORT || 3000;
 
 const app = express();
 
@@ -39,6 +40,6 @@ app.get("/", function(req, res) {
 
 });
 
-app.listen(4000, function() {
+app.listen(PORT, function() {
     console.log("Server started on 3000");
 });
