@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Weather App by Anmol</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather&family=Montserrat:wght@400;700&family=Raleway&family=Spectral&family=Ubuntu&display=swap" rel="stylesheet">
+    <!-- Google Icons -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <!-- my stylesheet -->
+    <link rel="stylesheet" href="css/styles.css">
+
+</head>
+<body>
+
+    <div class="left-container">
+
+        <button class="search-button">Search for places</button>
+        <button class="my-location-btn"><span class="material-symbols-outlined my-location-icon">my_location</span></button>
+
+        <img class="weather-image-bg" src="images/Cloud-background.png" alt="weather-image-bg">
+        <img class="weather-image" src="images/Shower.png" alt="weather-image">
+
+        <h1 class="weather-temp"><%= temperature %><span style="color: #A09FB1; font-size: 3rem;">°C</span></h1>
+        <h1 class="weather-type">Shower</h1>
+        <h1 class="today-date">Today  •  <%= day %>, <%= date %> <%= month %></h1>
+        <h1 class="place"><span class="material-symbols-outlined">location_on</span> New Delhi</h1>
+        
+    </div>
+
+    <div class="search-container">
+
+        <span class="material-symbols-outlined" style="color: white;font-size: 1.5rem;position: absolute;top: 2%;right: 10%;caret-color: transparent;cursor: pointer;">close</span>
+
+        <form action="post">
+            <input type="search" id="search-input" required>
+            <div class="placeholder">
+                <span class="material-symbols-outlined">location_on</span>search location
+            </div>
+            <button class="search-btn" type="submit" id="search" value="Submit">Search</button>
+        </form>
+
+        <div class="search-results-box">
+            <div class="search-result">
+                <h3>Panipat</h3>
+                <span class="material-symbols-outlined">navigate_next</span>
+            </div>
+            <div class="search-result">
+                <h3>Panipat</h3>
+                <span class="material-symbols-outlined">navigate_next</span>
+            </div>
+            <div class="search-result">
+                <h3>Panipat</h3>
+                <span class="material-symbols-outlined">navigate_next</span>
+            </div>
+            <div class="search-result">
+                <h3>Panipat</h3>
+                <span class="material-symbols-outlined">navigate_next</span>
+            </div>
+            <div class="search-result">
+                <h3>Panipat</h3>
+                <span class="material-symbols-outlined">navigate_next</span>
+            </div>
+            <div class="search-result">
+                <h3>Panipat</h3>
+                <span class="material-symbols-outlined">navigate_next</span>
+            </div>
+            <div class="search-result">
+                <h3>Panipat</h3>
+                <span class="material-symbols-outlined">navigate_next</span>
+            </div>
+            <div class="search-result">
+                <h3>Panipat</h3>
+                <span class="material-symbols-outlined">navigate_next</span>
+            </div>
+            <div class="search-result">
+                <h3>Panipat</h3>
+                <span class="material-symbols-outlined">navigate_next</span>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="right-container">
+
+        <button class="chng-to-cels">°C</button>
+        <button class="chng-to-fern">°F</button>
+
+        <div class="five-days-weather">
+            <div class="weather-by-date">
+                <h2>Tomorrow</h2>
+                <img class="fiveday-weather-img" src="images/Shower.png" alt="weather-image">
+                <h3 class="high-temp">17°C</h3>
+                <h3 class="low-temp">9°C</h3>
+            </div>
+            <div class="weather-by-date">
+                <h2>Sun, 7 Jun</h2>
+                <img class="fiveday-weather-img" src="images/LightRain.png" alt="weather-image">
+                <h3 class="high-temp">18°C</h3>
+                <h3 class="low-temp">10°C</h3>
+            </div>
+            <div class="weather-by-date">
+                <h2>Mon, 8 Jun</h2>
+                <img class="fiveday-weather-img" src="images/LightCloud.png" alt="weather-image">
+                <h3 class="high-temp">17°C</h3>
+                <h3 class="low-temp">8°C</h3>
+            </div>
+            <div class="weather-by-date">
+                <h2>Tue, 9 Jun</h2>
+                <img class="fiveday-weather-img" src="images/Clear.png" alt="weather-image">
+                <h3 class="high-temp">18°C</h3>
+                <h3 class="low-temp">9°C</h3>
+            </div>
+            <div class="weather-by-date">
+                <h2>Wed, 10 Jun</h2>
+                <img class="fiveday-weather-img" src="images/Clear.png" alt="weather-image">
+                <h3 class="high-temp">19°C</h3>
+                <h3 class="low-temp">10°C</h3>
+            </div>
+        </div>
+
+        <h1 class="tdy-hlts-heading">Today's Highlights</h1>
+
+        <div class="tdy-hlts">
+            <div class="wind-status">
+                <h2>Wind Status</h2>
+                <h1><%= windSpeed%><span style="font-size: 1.5rem; font-weight: 400;"> km/h</span></h1>
+                <div class="wind-direction">
+                    <button value="<%= windDirection %>" class="wind-direction-sign"><span class="material-symbols-outlined wind-direction-icon">navigation</span></button>
+                    <h2 class="wind-direction-name">WSW</h2>
+                </div>
+            </div>
+            <div class="humidity">
+                <h2>Humidity</h2>
+                <h1><%= humidity %><span style="font-size: 1.5rem; font-weight: 400;">%</span></h1>
+                <div class="humidity-bar">
+                    <h6 style="left: 0%;">0</h6>
+                    <h6 style="left: 48%;">50</h6>
+                    <h6 style="right: 0%;">100</h6>
+                    <div class="percentage-barempty">
+                        <div value="<%= humidity %>" class="percentage-barfilled"></div>
+                    </div>
+                    <h6 style="bottom: 0%; right: 0%;top: auto;">%</h6>
+                </div>
+            </div>
+            <div class="visibility">
+                <h2>Visibility</h2>
+                <h1><%= visibility %> <span style="font-size: 1.5rem; font-weight: 500;">km</span></h1>
+            </div>
+            <div class="air-pressure">
+                <h2>Air Pressure</h2>
+                <h1><%= pressure %> <span style="font-size: 1.5rem; font-weight: 500;">mb</span></h1>
+            </div>
+        </div>
+
+        <h1 class="creator-name">Created by <span style="color: #d2d0f1;">Anmol</span> - devChallenges.io</h1>
+
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+    <script src="index.js"></script>
+
+</body>
+</html>

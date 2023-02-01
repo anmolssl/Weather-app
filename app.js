@@ -1,11 +1,13 @@
 const express = require("express");
 const https = require("https");
+const geolocation = require("geolocation");
 
 const app = express();
 
-app.use(express.static(__dirname + '/'));
+app.use(express.static(__dirname + '/static'));
+app.set("view engine", "ejs");
 
-var temp;
+
 
 app.get("/", function(req, res) {
     
@@ -17,14 +19,26 @@ app.get("/", function(req, res) {
         response.on('data', function(data) {
             const weatherData = JSON.parse(data);
             console.log(weatherData);
-            temp = weatherData.main.temp;
+            var temp = Math.round(weatherData.main.temp);
+            var windSpeed = (weatherData.wind.speed * 3.6).toFixed(1);
+            var pressure = weatherData.main.pressure;
+            var humidity = weatherData.main.humidity;
+            var windDirection = weatherData.wind.deg;
+            var visibility = weatherData.visibility/1000;
+
+            const weekday = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+            const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+            const date = new Date();
+            var day = weekday[date.getDay()];
+            var month = monthNames[date.getMonth()];
+            var todayDate = date.getDate();
+
+            res.render("index", {temperature: temp, visibility: visibility, windDirection: windDirection, humidity: humidity, pressure: pressure, windSpeed: windSpeed, day: day, month: month, date: todayDate});
         });
     });
 
-    res.render(__dirname + "/index.html", {temp: temp});
 });
 
-app.listen(3000, function() {
+app.listen(4000, function() {
     console.log("Server started on 3000");
 });
-
