@@ -33,7 +33,7 @@ app.get("/", function(req, res) {
             var month = monthNames[date.getMonth()];
             var todayDate = date.getDate();
 
-            res.render("index.ejs", {temperature: temp, visibility: visibility, windDirection: windDirection, humidity: humidity, pressure: pressure, windSpeed: windSpeed, day: day, month: month, date: todayDate});
+            res.render("pages/index.ejs", {temperature: temp, visibility: visibility, windDirection: windDirection, humidity: humidity, pressure: pressure, windSpeed: windSpeed, day: day, month: month, date: todayDate});
         });
     });
 
