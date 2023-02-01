@@ -1,6 +1,5 @@
 const express = require("express");
 const https = require("https");
-const geolocation = require("geolocation");
 const PORT = process.env.PORT || 3000;
 
 const app = express();
@@ -34,7 +33,7 @@ app.get("/", function(req, res) {
             var month = monthNames[date.getMonth()];
             var todayDate = date.getDate();
 
-            res.render("index", {temperature: temp, visibility: visibility, windDirection: windDirection, humidity: humidity, pressure: pressure, windSpeed: windSpeed, day: day, month: month, date: todayDate});
+            res.render("index.ejs", {temperature: temp, visibility: visibility, windDirection: windDirection, humidity: humidity, pressure: pressure, windSpeed: windSpeed, day: day, month: month, date: todayDate});
         });
     });
 
