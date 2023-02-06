@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const express = require("express");
 const https = require("https");
 const http = require("http");
@@ -27,12 +29,12 @@ app.post("/coords", function(req, res) {
 app.get("/index", function(req, res) {
 
     var url;
-    // "https://api.openweathermap.org/data/2.5/weather?q=" + coords + ",India&appid=0f2b7a5fb36d9e2067a0b8919d60962e&units=metric"
-    // "https://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + long + "&appid=0f2b7a5fb36d9e2067a0b8919d60962e&units=metric"
+    // "https://api.openweathermap.org/data/2.5/weather?q=" + coords + ",India&appid=" + process.env.API_KEY + "&units=metric"
+    // "https://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + long + "&appid=" + process.env.API_KEY + "&units=metric"
     if (lat && long) {
-        url = "https://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + long + "&appid=0f2b7a5fb36d9e2067a0b8919d60962e&units=metric";
+        url = "https://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + long + "&appid=" + process.env.API_KEY + "&units=metric";
     } else {
-        url = "https://api.openweathermap.org/data/2.5/weather?q=" + "Delhi" + ",India&appid=0f2b7a5fb36d9e2067a0b8919d60962e&units=metric";
+        url = "https://api.openweathermap.org/data/2.5/weather?q=" + "Delhi" + ",India&appid=" + process.env.API_KEY + "&units=metric";
     }
     
     https.get(url, function(response) {
