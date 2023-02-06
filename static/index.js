@@ -21,6 +21,10 @@ $(".percentage-barfilled").css("width", humidityPercentage + "%")
 var windDirectionDeg = $(".wind-direction-sign").attr("value");
 $(".wind-direction-sign").css("transform", "rotate(" + windDirectionDeg + "deg)");
 
+// Fetching user location coords on page load/reload
+
+// navigator.geolocation.getCurrentPosition(onSuccess, onError);
+
 // On click to fetch user location coords
 
 $(".my-location-btn").click( function() {
@@ -42,7 +46,6 @@ function onSuccess(position) {
         longitude: position.coords.longitude
     }
     sendingCoordsToServer(coordsDetails);
-    location.reload();
 }
 
 function onError(error) {
@@ -62,6 +65,14 @@ function sendingCoordsToServer(object) {
     var jsonstring = JSON.stringify(object);
 
     var xhr = new XMLHttpRequest;
+
+    xhr.onreadystatechange = function() {
+        if(this.readyState === 4 && this.status === 200) {
+            if(this.responseText) {
+                window.location.replace(this.responseText);
+            }
+        }
+    };
 
     xhr.open('POST', '/coords', true);
     xhr.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
